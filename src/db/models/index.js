@@ -5,8 +5,8 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '../sequelize.json')[env];
-const db = {};
+const config = require('../sequelize.json')[env];
+const db = {}; /// ใช้ db ตัวนี้ในการเข้าถึง database
 
 let sequelize;
 if (config.use_env_variable) {
@@ -17,12 +17,12 @@ if (config.use_env_variable) {
 
 fs
   .readdirSync(__dirname)
-  .filter(file => {
+  .filter(file => { /// scan หา file .js ที่ไม่ใช่ index
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
+    db[model.name] = model; // เก็บ model ////
   });
 
 Object.keys(db).forEach(modelName => {

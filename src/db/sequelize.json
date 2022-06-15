@@ -1,23 +1,33 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "storage": "./dev.sqlite3",
+    "dialect": "sqlite"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "database": "demo",
+    "host": "localhost",
     "dialect": "mysql"
   },
+  "staging": {
+    "username": "gaaytsnl",
+    "password": "L8CiQc-xKS5z3E_prcApjlsQOv4duMV8",
+    "database": "gaaytsnl",
+    "host": "arjuna.db.elephantsql.com",
+    "dialect": "postgres"
+  },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "sa",
+    "password": "Tel1234!",
+    "database": "CM",
+    "host": "localhost",
+    "port": "1113",
+    "dialect": "mssql",
+    "dialectOption": {
+      "option": {
+        "validateBulkLoadParameters": false
+      }
+    }
   }
 }
