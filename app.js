@@ -1,6 +1,10 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const app = express();
 
 const corsOptions = {
     origin: ['http://localhost:4200',
@@ -19,8 +23,15 @@ app.use(require('./src/routes/routes'));
 //     res.send(req.body);
 // })
 
-const port = 3000;
+const port = process.env.PORT || 3000;
+const env = process.env.NODE_ENV || "development";
+
+//dev 3000, aaa
+//test 5555, xyz
+//prod 1111, bbb
+
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
+    console.log(`ENV on: ${env}`);
     console.log("Press Ctrl + C to quit.");
 });
